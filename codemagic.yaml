@@ -3,7 +3,7 @@
 
 workflows:
   setup-keras:
-    name: Setup-Studio
+    name: Setup-Keras
     instance_type: linux_x2
     max_build_duration: 120
     triggering:
@@ -17,9 +17,9 @@ workflows:
         - pattern: '*'
           include: true
     scripts:
-      - name: Pip Install
+      - name: Pip Upgrade
         script: python -m pip install --upgrade pip
-      - name: Pip Installe
+      - name: Pip Installed
         script: pip install -r requirements.txt
       - name: Install Addon
         script: pip install codemagic
