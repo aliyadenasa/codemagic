@@ -17,15 +17,15 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Modify TIME_UPDATED file
+      - name: Modify LAST_UPDATED file
         run: |
-          time=`date '+%Y-%m-%dT%H:%M:%SZ'`
-          echo $time > TIME_UPDATED
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
+          echo $d > LAST_UPDATED
       - name: Commit changes
         run: |
           Commit=$(echo Commit$(shuf -i 1000000000-9999999999 -n 1))
-          git config --local user.email "{hackpanther@panther.com}"
-          git config --local user.name "{hack panther}"
+          git config --local user.email "{hackpanther@gmail.com}"
+          git config --local user.name "{hackpanther}"
           git add -A
           git commit -m "$Commit"
       - name: Push Back
