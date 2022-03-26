@@ -24,11 +24,12 @@ jobs:
           echo $d > LAST_UPDATED
       - name: Commit changes
         run: |
+          Commit=$(echo Commit$(shuf -i 1000000000-9999999999 -n 1))
           git config --global user.email "hackpanther@panther.com"
           git config --global user.name "hack panther"
           git init
           git add .
-          git commit -m "$d"
+          git commit -m "$Commit"
           git branch -M master
           git remote add origin git@github.com:aliyadenasa/codemagic.git
           git push -u origin master
