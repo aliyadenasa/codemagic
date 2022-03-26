@@ -24,6 +24,8 @@ jobs:
           echo $d > LAST_UPDATED
       - name: Commit changes
         run: |
+          git config --global user.email "hackpanther@panther.com"
+          git config --global user.name "hack panther"
           git init
           git add .
           git commit -m "$d"
