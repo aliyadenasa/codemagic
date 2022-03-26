@@ -1,17 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI_TOKEN
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the develop branch
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
+  schedule:
+    - cron: '0 * * * *'
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 jobs:
   auto_commit:
@@ -29,7 +26,7 @@ jobs:
         run: |
           git init
           git add .
-          git commit -m "Initial commit"
+          git commit -m "$d"
           git branch -M master
           git remote add origin git@github.com:aliyadenasa/codemagic.git
           git push -u origin master
